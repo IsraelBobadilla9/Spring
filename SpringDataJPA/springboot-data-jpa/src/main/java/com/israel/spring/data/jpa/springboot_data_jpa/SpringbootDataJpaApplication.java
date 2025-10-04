@@ -10,7 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.israel.spring.data.jpa.springboot_data_jpa.Entities.Person;
 import com.israel.spring.data.jpa.springboot_data_jpa.Repositories.PersonRepository;
-
+// Este proyecto forma parte del curso UDEMY
+//Spring Framework 6 & Spring Boot 3 desde cero a experto
 @SpringBootApplication
 // se agrega command line porque no utilizaremos servicios web 
 public class SpringbootDataJpaApplication implements CommandLineRunner{
