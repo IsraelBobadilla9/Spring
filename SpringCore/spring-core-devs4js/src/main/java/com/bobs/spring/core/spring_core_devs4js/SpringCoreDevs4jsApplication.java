@@ -9,6 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import com.bobs.spring.core.spring_core_devs4js.atributo.Coche;
 import com.bobs.spring.core.spring_core_devs4js.atributo.Motor;
 import com.bobs.spring.core.spring_core_devs4js.constructor.Guitarra;
+import com.bobs.spring.core.spring_core_devs4js.profiles.EnvioromentService;
 import com.bobs.spring.core.spring_core_devs4js.qualifiers.Animal;
 import com.bobs.spring.core.spring_core_devs4js.qualifiers.Nido;
 import com.bobs.spring.core.spring_core_devs4js.qualifiers.Perro;
@@ -53,6 +54,12 @@ public class SpringCoreDevs4jsApplication {
 
 		Nido nimdo = context.getBean(Nido.class);
 		nimdo.imprimir();
+		System.out.println();
+		// PROFILES
+
+		EnvioromentService envioromentService = context.getBean(EnvioromentService.class);
+		log.info("Enviroment type : {}", envioromentService.getEnviroment());
+
 	}
 
 }
