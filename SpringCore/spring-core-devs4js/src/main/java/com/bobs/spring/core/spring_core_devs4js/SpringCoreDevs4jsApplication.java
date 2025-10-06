@@ -5,14 +5,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 import com.bobs.spring.core.spring_core_devs4js.atributo.Coche;
 import com.bobs.spring.core.spring_core_devs4js.atributo.Motor;
+import com.bobs.spring.core.spring_core_devs4js.autowire.AreaCalculatorService;
 import com.bobs.spring.core.spring_core_devs4js.constructor.Guitarra;
 import com.bobs.spring.core.spring_core_devs4js.profiles.EnvioromentService;
 import com.bobs.spring.core.spring_core_devs4js.qualifiers.Animal;
 import com.bobs.spring.core.spring_core_devs4js.qualifiers.Nido;
 import com.bobs.spring.core.spring_core_devs4js.qualifiers.Perro;
+import com.bobs.spring.core.spring_core_devs4js.scope.EjemploService;
 import com.bobs.spring.core.spring_core_devs4js.setters.Mueble;
 
 @SpringBootApplication
@@ -59,7 +62,26 @@ public class SpringCoreDevs4jsApplication {
 
 		EnvioromentService envioromentService = context.getBean(EnvioromentService.class);
 		log.info("Enviroment type : {}", envioromentService.getEnviroment());
+		System.out.println();
 
+		EjemploService service = context.getBean(EjemploService.class);
+		EjemploService service2 = context.getBean(EjemploService.class);
+
+		log.info("Are beans equals ? {}", service.equals(service2));
+		log.info("Are beans equals ? {}", service == service2);
+
+		String nombre = context.getBean(String.class);
+		System.out.println();
+		log.info("Nombre {}", nombre);
+		System.out.println();
+		AreaCalculatorService area = context.getBean(AreaCalculatorService.class);
+		log.info("Area total {}", area.calcAreas());
+
+	}
+
+	@Bean
+	public String getApplicationName(){
+		return "Israel";
 	}
 
 }
