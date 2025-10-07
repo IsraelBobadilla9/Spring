@@ -11,6 +11,8 @@ import com.bobs.spring.core.spring_core_devs4js.atributo.Coche;
 import com.bobs.spring.core.spring_core_devs4js.atributo.Motor;
 import com.bobs.spring.core.spring_core_devs4js.autowire.AreaCalculatorService;
 import com.bobs.spring.core.spring_core_devs4js.constructor.Guitarra;
+import com.bobs.spring.core.spring_core_devs4js.lazybean.BeanB;
+import com.bobs.spring.core.spring_core_devs4js.lifecycle.LifeCycleBean;
 import com.bobs.spring.core.spring_core_devs4js.profiles.EnvioromentService;
 import com.bobs.spring.core.spring_core_devs4js.qualifiers.Animal;
 import com.bobs.spring.core.spring_core_devs4js.qualifiers.Nido;
@@ -76,6 +78,11 @@ public class SpringCoreDevs4jsApplication {
 		System.out.println();
 		AreaCalculatorService area = context.getBean(AreaCalculatorService.class);
 		log.info("Area total {}", area.calcAreas());
+		System.out.println();
+		LifeCycleBean life = context.getBean(LifeCycleBean.class);
+		System.out.println();
+
+		
 
 	}
 
