@@ -2,7 +2,7 @@ package com.bobadilla.spring.portaljob.spring_pure_jobportal.entity;
 
 import java.util.Date;
 
-import org.hibernate.usertype.UserType;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
@@ -20,7 +20,7 @@ import jakarta.validation.constraints.NotEmpty;
 @Table(name = "users")
 public class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
     @Column(unique = true)
     private String email;
@@ -32,7 +32,7 @@ public class Users {
     private Date registrationDate;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userTypeId",referencedColumnName = "userTypeId")
-    private UserType userType;
+    private UsersTypeE userTypeId;
 
 
     public Users() {
@@ -40,13 +40,13 @@ public class Users {
 
 
     public Users(int userId, String email, @NotEmpty String password, boolean isActive, Date registrationDate,
-            UserType userType) {
+            UsersTypeE userTypeId) {
         this.userId = userId;
         this.email = email;
         this.password = password;
         this.isActive = isActive;
         this.registrationDate = registrationDate;
-        this.userType = userType;
+        this.userTypeId = userTypeId;
     }
 
 
@@ -100,20 +100,20 @@ public class Users {
     }
 
 
-    public UserType getUserType() {
-        return userType;
+    public UsersTypeE getuserTypeId() {
+        return userTypeId;
     }
 
 
-    public void setUserType(UserType userType) {
-        this.userType = userType;
+    public void setuserTypeId(UsersTypeE userTypeId) {
+        this.userTypeId = userTypeId;
     }
 
 
     @Override
     public String toString() {
         return "Users [userId=" + userId + ", email=" + email + ", password=" + password + ", isActive=" + isActive
-                + ", registrationDate=" + registrationDate + ", userType=" + userType + "]";
+                + ", registrationDate=" + registrationDate + ", userTypeId=" + userTypeId + "]";
     }
 
     

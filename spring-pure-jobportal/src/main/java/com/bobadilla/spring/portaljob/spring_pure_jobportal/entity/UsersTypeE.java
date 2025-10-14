@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users_type")
-public class UsersType {
+public class UsersTypeE {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,10 +21,10 @@ public class UsersType {
     @OneToMany(targetEntity = Users.class, mappedBy = "userTypeId", cascade = CascadeType.ALL)
     private List<Users> users;
     
-    public UsersType() {
+    public UsersTypeE() {
     }
 
-    public UsersType(int userTypeId, String userTypeName, List<Users> users) {
+    public UsersTypeE(int userTypeId, String userTypeName, List<Users> users) {
         this.userTypeId = userTypeId;
         this.userTypeName = userTypeName;
         this.users = users;
